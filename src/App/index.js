@@ -46,35 +46,35 @@ function App() {
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
+        totalTodos={totalTodos}
+        searchText={searchValue}
         onError={() => <TodosError/>}
         onLoading={() => <TodosLoading/>}
         onEmptyTodos={() => <EmptyTodos/>}
+        onEmptySearchResults={
+          (searchText) => <p>No hay resultados para {searchText}</p>
+        }
         // render es lo principal donde se renderiza el componente 
-        render={todo => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        )}
-      />
-      {/* <TodoList>
-        {error && <TodosError />}
-        {loading && <TodosLoading />}
-        {(!loading && !searchedTodos.length) && <EmptyTodos />}
-        
-        {searchedTodos.map(todo => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList> */}
+        // render={todo => (
+        //   <TodoItem
+        //     key={todo.text}
+        //     text={todo.text}
+        //     completed={todo.completed}
+        //     onComplete={() => completeTodo(todo.text)}
+        //     onDelete={() => deleteTodo(todo.text)}
+        //   />
+        // )}
+      >
+      {todo => (
+        <TodoItem
+          key={todo.text}
+          text={todo.text}
+          completed={todo.completed}
+          onComplete={() => completeTodo(todo.text)}
+          onDelete={() => deleteTodo(todo.text)}
+        />
+      )}
+      </TodoList>
 
       {!!openModal && (
         <Modal>
