@@ -6,6 +6,7 @@ function useLocalStorage(itemName, initialValue) {
   const [loading, setLoading] = React.useState(true);
   const [item, setItem] = React.useState(initialValue);
   
+  // si un useEffect dejas como segundo parametro un array vacio lo que haces es ejecutar una sola vez la funcion
   React.useEffect(() => {
     setTimeout(() => {
       try {
@@ -38,6 +39,7 @@ function useLocalStorage(itemName, initialValue) {
     }
   };
 
+  // funcion para enviar a los demas componentes para sincronizar los todos
   const sincronizeItem = () => {
     setLoading(true);
     setSincronizedItem(false);

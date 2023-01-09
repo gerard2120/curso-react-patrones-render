@@ -49,6 +49,8 @@ function useTodos(props) {
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
   };
+
+  
   
   return (
     {
@@ -64,6 +66,7 @@ function useTodos(props) {
       deleteTodo,
       openModal,
       setOpenModal,
+      sincronizeTodos
     }
   );
 }
